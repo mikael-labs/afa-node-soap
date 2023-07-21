@@ -367,6 +367,16 @@ export class Server extends EventEmitter {
         } else {
           methodName = pair ? pair.methodName : messageElemName;
         }
+
+        console.log({
+          soapAction,
+          methodName,
+          req,
+          pair,
+          method: binding.methods[methodName],
+          bindingStyle: binding.style
+        });
+        
         /** Style can be defined in method. If method has no style then look in binding */
         const style = binding.methods[methodName].style || binding.style;
 
